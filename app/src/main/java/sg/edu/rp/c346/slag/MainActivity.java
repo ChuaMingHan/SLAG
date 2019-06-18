@@ -2,20 +2,36 @@ package sg.edu.rp.c346.slag;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //private WebView webView;
+    ImageView ivSlag;
+
+    ContextMenu itemHome;
+    ContextMenu itemAboutUs;
+    ContextMenu itemCollection;
+    ContextMenu itemContact;
+    ContextMenu itemSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ivSlag = findViewById(R.id.imageView);
+        itemHome = findViewById(R.id.itemHome);
+        itemAboutUs = findViewById(R.id.itemAboutUs);
+        itemCollection = findViewById(R.id.itemCollection);
+        itemContact = findViewById(R.id.itemContactUs);
+        itemSignUp = findViewById(R.id.itemSignUp);
 
         //webView = (WebView) findViewById(R.id.webView);
         //webView.setWebViewClient(new WebViewClient());
@@ -25,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.example_menu, menu);
+        getMenuInflater().inflate(R.menu.example_menu, menu);
         return true;
     }
 
@@ -37,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "S.L.A.G - selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.itemHome:
-                Toast.makeText(this, "Home - selected.", Toast.LENGTH_SHORT).show();
+
                 return true;
             case R.id.itemAboutUs:
                 Toast.makeText(this, "About Us - selected.", Toast.LENGTH_SHORT).show();
